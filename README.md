@@ -13,7 +13,7 @@ This is a fully functional and responsive image gallery that showcases a collect
 
 ## Demo
 
-[Live Demo](#) - Add the link to your hosted app here.
+[Live Demo](https://pixgalleria.netlify.app/) - The link to the live website.
 
 ## Features
 
