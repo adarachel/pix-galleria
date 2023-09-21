@@ -1,11 +1,11 @@
-import React, { useState, useRef } from 'react'; // Import useRef
+import React, { useState, useRef } from 'react';
 import { useDrag, useDrop } from 'react-dnd';
 import galleryData from './data';
 import '../Gallery.css';
 import ReorderFeedback from './ReorderFeedback';
 
 const Card = ({ src, title, id, index, tags, moveImage }) => {
-    const ref = useRef(null); // Use useRef instead of useState for ref
+    const ref = useRef(null);
     // eslint-disable-next-line
     const [showReorderFeedback, setShowReorderFeedback] = useState(false);
 
@@ -39,7 +39,6 @@ const Card = ({ src, title, id, index, tags, moveImage }) => {
             moveImage(dragIndex, hoverIndex);
             item.index = hoverIndex;
 
-            // Show the reorder feedback message
             setShowReorderFeedback(true);
         },
     });
@@ -78,12 +77,11 @@ const Gallery = ({ searchQuery }) => {
     const [loading, setLoading] = React.useState(true);
     const [showReorderFeedback, setShowReorderFeedback] = useState(false);
 
-    // Simulate loading delay (you can replace this with your actual image loading logic)
     React.useEffect(() => {
         setTimeout(() => {
-            setImages(galleryData); // Replace galleryData with your actual image data
+            setImages(galleryData);
             setLoading(false);
-        }, 3000); // Adjust the delay as needed
+        }, 3000);
     }, []);
 
     const moveImage = React.useCallback((dragIndex, hoverIndex) => {
@@ -92,14 +90,12 @@ const Gallery = ({ searchQuery }) => {
             const removedImage = clonedImages.splice(dragIndex, 1)[0];
             clonedImages.splice(hoverIndex, 0, removedImage);
 
-            // Show the reorder feedback message
             setShowReorderFeedback(true);
 
             return clonedImages;
         });
     }, []);
 
-    // Filter images based on the search query
     const filteredImages = images.filter((image) =>
         image.tags.some((tag) =>
             tag.toLowerCase().includes(searchQuery.toLowerCase())
@@ -112,17 +108,21 @@ const Gallery = ({ searchQuery }) => {
                 <div className="loading-spinner">Loading...</div>
             ) : (
                 <>
-                    {filteredImages.map((image, index) => (
-                        <Card
-                            key={image.id}
-                            src={image.img}
-                            title={image.title}
-                            id={image.id}
-                            index={index}
-                            tags={image.tags} // Pass the tags to the Card component
-                            moveImage={moveImage}
-                        />
-                    ))}
+                    {filteredImages.length === 0 ? (
+                        <p>No images found for the selected tag.</p>
+                    ) : (
+                        filteredImages.map((image, index) => (
+                            <Card
+                                key={image.id}
+                                src={image.img}
+                                title={image.title}
+                                id={image.id}
+                                index={index}
+                                tags={image.tags}
+                                moveImage={moveImage}
+                            />
+                        ))
+                    )}
                 </>
             )}
 

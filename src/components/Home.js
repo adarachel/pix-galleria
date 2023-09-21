@@ -5,10 +5,9 @@ import '../Home.css';
 function Home() {
     return (
         <div>
-            <h1>Welcome to Pix Galleria!</h1>
-            <h2> An image gallery that showcases a collection of images. It is equipped with user log in authentication and an image drag-and-drop feature.</h2>
-            <h4>created by Ada Rachel Oyeoka</h4>
-            <p>Explore and enjoy our collection of images.</p>
+            <h1>Welcome.</h1>
+            <p>Acceptable Credentials:</p>
+            <p>Email: user@example.com <br /> Password: 1Password</p>
 
             <div>
                 <Link to="/register">

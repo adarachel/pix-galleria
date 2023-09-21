@@ -5,7 +5,6 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Login from './components/Login';
 import Register from './components/Register';
 import LoggedInPage from './components/LoggedInPage';
-import GalleryPage from './components/GalleryPage';
 import Home from './components/Home';
 import Gallery from './components/Gallery';
 import galleryData from './components/data';
@@ -17,7 +16,6 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/loggedin" element={<LoggedInPage />} />
-        <Route path="/gallerypage" element={<GalleryPage />} />
         <Route path="/" element={<Home />} />
         <Route path="/gallery" element={<Gallery data={galleryData} />} />
       </Routes>
