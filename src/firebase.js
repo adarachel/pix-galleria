@@ -14,12 +14,24 @@ const firebaseConfig = {
 const firebaseApp = initializeApp(firebaseConfig);
 const firebaseAuth = getAuth();
 
+// Define a function to save the user's authentication state to local storage
+const saveAuthStateToLocalStorage = (user) => {
+    if (user) {
+        localStorage.setItem('user', JSON.stringify(user));
+    } else {
+        localStorage.removeItem('user');
+    }
+};
+
 onAuthStateChanged(firebaseAuth, (user) => {
     if (user) {
         console.log("User is signed in");
     } else {
         console.log("User is signed out");
     }
+
+    // Save the user's authentication state to local storage
+    saveAuthStateToLocalStorage(user);
 });
 
 setPersistence(firebaseAuth, browserSessionPersistence)
