@@ -61,11 +61,11 @@ This is a fully functional and responsive image gallery that showcases a collect
 ## Contributing
 Contributions are welcome! If you'd like to contribute to this project, please follow these steps:
 
-Fork the repository.
-Create a new branch for your feature or bug fix.
-Make your changes and commit them with descriptive commit messages.
-Push your changes to your fork.
-Submit a pull request to the main repository.
+   - Fork the repository.
+   - Create a new branch for your feature or bug fix.
+   - Make your changes and commit them with descriptive commit messages.
+   - Push your changes to your fork.
+   - Submit a pull request to the main repository.
 
 ## License
 This project is licensed under the MIT License. See the LICENSE file for details.
